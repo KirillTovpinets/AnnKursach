@@ -1,24 +1,23 @@
-﻿Сборка начата 03.05.2017 23:29:55.
-     1>Проект "c:\Users\kiril\OneDrive\документы\visual studio 2013\Projects\AnnaKursach\AnnaKursach\AnnaKursach.vcxproj" в узле 2 (целевые объекты Build).
+﻿Сборка начата 08.05.2017 17:41:34.
+     1>Проект "C:\Users\kiril\OneDrive\документы\visual studio 2013\Projects\AnnaKursach\AnnaKursach\AnnaKursach.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(36): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(40): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(44): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(48): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(68): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(72): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(76): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(80): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(84): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(118): warning C4018: <: несоответствие типов со знаком и без знака
-     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(260): warning C4800: boolean: принудительно задано логическое значение "true" или "false" (предупреждение о производительности)
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(33): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(41): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(45): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(69): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(73): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(77): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(81): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(85): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\kiril\onedrive\документы\visual studio 2013\projects\annakursach\annakursach\source.cpp(124): warning C4018: <: несоответствие типов со знаком и без знака
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.lib" /MACHINE:X86 Debug\Source.obj
-         AnnaKursach.vcxproj -> c:\users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.exe
-     1>Сборка проекта "c:\Users\kiril\OneDrive\документы\visual studio 2013\Projects\AnnaKursach\AnnaKursach\AnnaKursach.vcxproj" завершена (целевые объекты Build).
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.lib" /MACHINE:X86 Debug\Source.obj
+         AnnaKursach.vcxproj -> C:\Users\kiril\onedrive\документы\visual studio 2013\Projects\AnnaKursach\Debug\AnnaKursach.exe
+     1>Сборка проекта "C:\Users\kiril\OneDrive\документы\visual studio 2013\Projects\AnnaKursach\AnnaKursach\AnnaKursach.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:06.42
+Затраченное время: 00:00:10.20

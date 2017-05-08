@@ -6,20 +6,17 @@
 #include <string>
 #include <iostream>
 using namespace std;
-#define NUMGR 1
+#define NUMFL 5
 #define NUMTCH 5
-#define NUMEX 2
 #define TCHID 6
 #define TOTAL_LIST 1
-#define GR1ID 2
-#define GR2ID 3
-#define EXAMSID 5
 
 char residInfo[20] = "resident Info.txt";
-char exams[20] = "exams.txt";
-char fl1[20] = "number1.txt";
-char fl2[20] = "number2.txt";
-char fl3[20] = "number3.txt";
+char fl1[20] = "flour-1.txt";
+char fl2[20] = "flour-2.txt";
+char fl3[20] = "flour-3.txt";
+char fl4[20] = "flour-4.txt";
+char fl5[20] = "flour-5.txt";
 char tchrs[20] = "Teachers.txt";
 
 
@@ -49,6 +46,10 @@ public:
 		{
 			this->passportInfo[i] = passport[i];
 		}
+		this->name[strlen(name)] = '\0';
+		this->fname[strlen(fname)] = '\0';
+		this->pater[strlen(pater)] = '\0';
+		this->passportInfo[strlen(passport)] = '\0';
 	}
 } teachList[NUMTCH];
 
@@ -64,7 +65,7 @@ public:
 	int room;
 	bool isPayed;
 	residence(){};
-	residence(char name[20], char fname[20], char patername[20], char dateStart[20], char dateFinish[20], bool isMale, int Room, bool isPlayed){
+	residence(char name[20], char fname[20], char patername[20], char dateStart[20], char dateFinish[20], bool isMale, int Room, bool isPayed){
 		for (int i = 0; i < strlen(name); i++)
 		{
 			this->name[i] = name[i];
@@ -85,6 +86,11 @@ public:
 		{
 			this->dateFinish[i] = dateFinish[i];
 		}
+		this->name[strlen(name)] = '\0';
+		this->fname[strlen(fname)] = '\0';
+		this->patername[strlen(patername)] = '\0';
+		this->dateStart[strlen(dateStart)] = '\0';
+		this->dateFinish[strlen(dateFinish)] = '\0';
 		this->isMale = isMale;
 		this->room = Room;
 		this->isPayed = isPayed;
@@ -119,6 +125,7 @@ public:
 		{
 			this->period[i] = period[i];
 		}
+		this->period[strlen(period)] = '\0';
 	};
 
 	Payment(){};
@@ -191,22 +198,47 @@ void add_resident()
 	int numFlour = 0;
 
 	printf("Этаж (от 1 до 5): ");
-	scanf("%d", numFlour);
+	scanf("%d", &numFlour);
 
-	char* filename = strcat("flour-", (char*)numFlour);
-	filename = strcat(filename, ".txt");
+	char* filename = "";
+	switch (numFlour)
+	{
+	case 1: {
+				filename = "flour-1.txt";
+				break;
+	}
+	case 2: {
+				filename = "flour-2.txt";
+				break;
+	}
+	case 3: {
+				filename = "flour-3.txt";
+				break;
+	}
+	case 4: {
+				filename = "flour-4.txt";
+				break;
+	}
+	case 5: {
+				filename = "flour-5.txt";
+				break;
+	}
+	default:
+		break;
+	}
 	FILE* f = fopen(filename, "at");
 
 	while (YesOrNot != 2)
 	{
+		system("cls");
 		char name[20];
 		char fname[20];
 		char patername[20];
 		char dateStart[20];
 		char dateFinish[20];
 		int numRoom;
-		boolean isMale;
-		boolean isPayed;
+		bool isMale;
+		bool isPayed;
 
 		printf("Имя: ");
 		scanf("%s", name);
@@ -220,23 +252,11 @@ void add_resident()
 		scanf("%s", patername);
 		fprintf(f, "%s\n", patername);
 
-		printf("Дата заселения: ");
-		scanf("%s", dateStart);
-		fprintf(f, "%s\n", dateStart);
-
-		printf("Дата выселения: ");
-		scanf("%s", dateFinish);
-		fprintf(f, "%s\n", dateFinish);
-
-		printf("Номер комнаты: ");
-		scanf("%d", &numRoom);
-		fprintf(f, "%d\n", numRoom);
-
-		printf("Пол: ");
-		printf("---------");
-		printf("1. Мужской");
-		printf("2. Женский");
-		printf("---------");
+		printf("Пол: \n");
+		printf("---------\n");
+		printf("1. Мужской\n");
+		printf("2. Женский\n");
+		printf("---------\n");
 		printf("Ответ: ");
 		int ans;
 		scanf("%d", &ans);
@@ -255,6 +275,18 @@ void add_resident()
 		default:
 			break;
 		}
+		printf("Номер комнаты: ");
+		scanf("%d", &numRoom);
+		fprintf(f, "%d\n", numRoom);
+
+		printf("Дата заселения: ");
+		scanf("%s", dateStart);
+		fprintf(f, "%s\n", dateStart);
+
+		printf("Дата выселения: ");
+		scanf("%s", dateFinish);
+		fprintf(f, "%s\n", dateFinish);
+
 		isPayed = false;
 		fprintf(f, "Не оплачено");
 		residence infoResid = *new residence(name, fname, patername, dateStart, dateFinish, isMale, numRoom, isPayed);
@@ -297,7 +329,7 @@ void add_paymentInfo()  //заполнение элементов массива объектов информацией
 		printf("Период: ");
 		scanf("%s", period);
 		printf("Цена: ");
-		scanf("%f", price);
+		scanf("%f", &price);
 
 		PayInfo = *new Payment(period, price);
 		infoList[num_rows] = PayInfo;
@@ -320,7 +352,7 @@ void add_paymentInfo()  //заполнение элементов массива объектов информацией
 	f = fopen("payment Info.txt", "at");
 	for (int i = 0; i < num_rows; i++)
 	{
-		fprintf(f, "%7s %10f\n", infoList[i].period, infoList[i].price);
+		fprintf(f, "%15s %5.2f\n", infoList[i].period, infoList[i].price);
 	}
 	fclose(f);
 }
@@ -328,8 +360,7 @@ void add_paymentInfo()  //заполнение элементов массива объектов информацией
 void add_tchr()
 {
 	int ans = 1;
-	int num_teacher = 0;
-	while (ans == 1 && num_teacher <= NUMTCH)
+	while (ans == 1 && num_rows <= NUMTCH)
 	{
 		system("cls");
 		char name[20];
@@ -349,8 +380,8 @@ void add_tchr()
 		scanf("%s", passportInfo);
 
 		teachers newTeacher = *new teachers(name, fname, pater, passportInfo);
-		teachList[num_teacher] = newTeacher;
-		num_teacher++;
+		teachList[num_rows] = newTeacher;
+		num_rows++;
 		do
 		{
 			printf("\n-------------------------\n");
@@ -362,7 +393,6 @@ void add_tchr()
 			printf("Ваш выбор: ");
 			scanf("%d", &ans);
 		} while (ans>2);
-
 	}
 	writedata(tchrs, TCHID);
 }
@@ -398,7 +428,7 @@ void writedata(char* file, int ind)
 			else{
 				payed = "Неоплачено";
 			}
-			fprintf(f, "%d\n %s\n %s\n %s\n %s\n %d\n %s\n %s\n %s\n", Data[j].FlourNumber,
+			fprintf(f, "%d\n%s\n%s\n%s\n%s\n%d\n%s\n%s\n%s\n", Data[j].FlourNumber,
 				Data[j].data.name,
 				Data[j].data.fname,
 				Data[j].data.patername,
@@ -413,9 +443,9 @@ void writedata(char* file, int ind)
 
 	else if (ind == TCHID)
 	{
-		for (int i = 0; i < NUMTCH; i++)
+		for (int i = 0; i < num_rows; i++)
 		{
-			fprintf(f, "%10s %10s %10s %10s\n", teachList[i].fname, teachList[i].name, teachList[i].pater, teachList[i].passportInfo);
+			fprintf(f, "%s %s %s %s", teachList[i].fname, teachList[i].name, teachList[i].pater, teachList[i].passportInfo);
 		}
 		fclose(f);
 	}
@@ -435,8 +465,8 @@ void viewFile(char* file_name, int ind)
 	{
 		if (ind == TOTAL_LIST)
 		{
-			printf("   Этаж    !!Ответственный  !!Имя       !!Фамилия  !!Отчество  !!Дата заселения        !!Дата выселения !! Пол !! Комната !! Оплата !!\n");
-			printf("--------------------------------------------------------------------------\n");
+			printf("Этаж        !!Имя      !!Фамилия   !!Отчество     !!Пол         !!Комната !!Заселение  !!Выселение  !! Оплата !!\n");
+			printf("----------------------------------------------------------------------------------------------------------------\n");
 
 			char str[50];
 			int num_wd = 1;
@@ -444,7 +474,7 @@ void viewFile(char* file_name, int ind)
 			{
 				str[strlen(str) - 1] = ' ';
 				printf("%12s", str);
-				if (num_wd % 6 == 0 && num_wd != 0)
+				if (num_wd % 9 == 0 && num_wd != 0)
 					printf("\n");
 				num_wd++;
 			}
@@ -453,14 +483,14 @@ void viewFile(char* file_name, int ind)
 
 		else if (ind == TCHID)
 		{
-			printf("Фамилия    !!Имя     !!Отество  !!Паспорт\n");
+			printf("Фамилия    !!Имя     !!Отество     !!Паспорт\n");
 			printf("--------------------------------------------------------------------------\n");
 
 			char str[50];
 			int num_wd = 1;
 			while (fgets(str, sizeof(str), f) != NULL)
 			{
-				printf("%s", str);
+				printf("%12s", str);
 			}
 			fclose(f);
 		}
@@ -478,13 +508,15 @@ void viewFlour()
 	{
 		printf("Выберите этаж: ");
 		scanf("%d", &fl);
-	} while (fl>NUMGR);
+	} while (fl>NUMFL);
 
 	switch (fl)
 	{
 	case 1: file = fl1; break;
 	case 2: file = fl2; break;
 	case 3: file = fl3; break;
+	case 4: file = fl4; break;
+	case 5: file = fl5; break;
 	default:
 		break;
 	}
@@ -498,14 +530,13 @@ void viewFlour()
 		return;
 	}
 	system("cls");
-	printf("Дисциплина  !!Форма       !!Дата        !!Аудитория  !!Преподаватель                !!Учёная степень!!\n");
+	printf("Имя      !!Фамилия   !!Отчество     !!Пол         !!Комната !!Заселение  !!Выселение  !! Оплата !!\n");
 	printf("-----------------------------------------------------------------------------------------------------\n");
 	char str[50];
 	int num_wd = 1;
 
 	while (fgets(str, sizeof(str), f) != NULL)
 	{
-		;
 		str[strlen(str) - 1] = ' ';
 		printf("%12s", str);
 		if (num_wd % 8 == 0 && num_wd != 0)
